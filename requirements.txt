@@ -1,0 +1,12 @@
+fastapi==0.104.1
+uvicorn==0.24.0
+python-multipart==0.0.6
+google-cloud-aiplatform==1.36.4
+google-cloud-storage==2.13.0
+google-auth==2.23.4
+google-api-core==2.15.0
+google-genai>=1.0.0
+python-dotenv==1.0.0
+pydantic==2.5.2
+requests==2.31.0
+python-magic==0.4.27 

@@ -1,0 +1,141 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.env
+.venv
+.python-version
+.python-version-*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+*.sublime-workspace
+*.sublime-project
+.project
+.pydevproject
+.settings/
+*.code-workspace
+
+# Logs and databases
+*.log
+logs/
+log/
+*.sqlite
+*.db
+*.sql
+
+# Test coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Docker
+.docker/
+docker-compose.override.yml
+*.env
+!example.env
+
+# Project specific
+uploads/
+temp/
+data/
+*.pdf
+*.docx
+*.doc
+*.txt
+!requirements.txt
+!README.txt
+processed/
+raw/
+results/
+models/
+.vector_store/
+.embeddings/
+
+# API keys and secrets
+*.pem
+*.key
+*.cert
+credentials.json
+service-account-key.json
+token.json
+secrets.yaml
+config.local.yaml
+
+# Misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.bak
+*.tmp
+*.temp
+.directory
+*.pyc
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Documentation
+docs/_build/
+docs/api/
+site/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/ 
