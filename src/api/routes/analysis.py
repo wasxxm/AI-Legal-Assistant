@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, UploadFile, File
-from src.domain.models.case import LegalAnalysis
+from src.domain.models.case import Case
 from src.domain.services.document_analyzer import analyze_legal_document
 from src.domain.services.pdf_validator import validate_pdf
 from src.core.config import MAX_FILE_SIZE
@@ -19,7 +19,7 @@ class ErrorResponse(BaseModel):
             }
         }
 
-@router.post("/analyze", response_model=LegalAnalysis, responses={
+@router.post("/", response_model=Case, responses={
     400: {"model": ErrorResponse},
     500: {"model": ErrorResponse}
 })
@@ -96,14 +96,4 @@ async def analyze_case(file: UploadFile = File(...)):
                 detail=error_msg,
                 code="INTERNAL_ERROR"
             ).dict()
-        )
-
-@router.get("/")
-async def root():
-    """
-    Root endpoint - Returns API information
-    """
-    return {
-        "status": "ok",
-        "message": "Legal Case Analysis API is running"
-    } 
+        ) 

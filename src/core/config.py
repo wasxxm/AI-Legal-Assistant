@@ -41,5 +41,16 @@ class Settings(BaseModel):
     APP_VERSION: str = "1.0.0"
     APP_DESCRIPTION: str = "API for analyzing Pakistani legal cases using Google's Gemini AI"
     ALLOWED_ORIGIN: str = os.getenv("ALLOWED_ORIGIN", "http://localhost:3000")
+    
+    # Database settings
+    DB_HOST: str = os.getenv("DB_HOST", "postgres")
+    DB_PORT: str = os.getenv("DB_PORT", "5432")
+    DB_NAME: str = os.getenv("DB_NAME", "legal_db")
+    DB_USER: str = os.getenv("DB_USER", "postgres")
+    DB_PASSWORD: str = os.getenv("DB_PASSWORD", "postgres")
 
-settings = Settings() 
+settings = Settings()
+
+def get_settings() -> Settings:
+    """Get application settings"""
+    return settings 

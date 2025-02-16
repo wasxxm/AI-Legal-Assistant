@@ -11,22 +11,33 @@ logger = setup_logging()
 
 # Create FastAPI app
 app = FastAPI(
-    title=settings.APP_NAME,
-    description=settings.APP_DESCRIPTION,
-    version=settings.APP_VERSION
+    title="Legal Document Analysis API",
+    description="API for analyzing legal documents with vector search capabilities",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc"
 )
 
-# Add CORS middleware
+# Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.ALLOWED_ORIGIN],
+    allow_origins=["*"],  # In production, replace with specific origins
     allow_credentials=True,
-    allow_methods=["POST", "GET"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Include API routes
+# Include all routes
 app.include_router(router)
+
+@app.get("/")
+async def root():
+    return {
+        "message": "Legal Document Analysis API",
+        "version": "1.0.0",
+        "docs_url": "/docs",
+        "openapi_url": "/openapi.json"
+    }
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True) 

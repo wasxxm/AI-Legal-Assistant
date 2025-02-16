@@ -18,7 +18,7 @@ def init_gemini_client():
 
 def get_model_name():
     """Get the Gemini model name"""
-    return os.getenv("MODEL_NAME", "gemini-2.0-flash-001")  # Updated default model name
+    return os.getenv("MODEL_NAME", "gemini-2.0-flash-exp")  # Updated default model name
 
 def generate_content_stream(client, contents, config=None):
     """

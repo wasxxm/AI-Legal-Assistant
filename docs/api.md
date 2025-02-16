@@ -199,4 +199,78 @@ Returns API information.
 3. Missing arrays are returned as empty arrays
 4. The API extracts only information explicitly stated in the document
 5. All text is properly escaped for JSON
-6. Boolean fields default to false if not specified 
+6. Boolean fields default to false if not specified
+
+## Vector Search Endpoints
+
+### POST /api/v1/vector/cases
+
+Creates a new case and generates its vector embeddings.
+
+#### Request
+- Method: POST
+- Content-Type: application/json
+- Body:
+
+```json
+{
+    "case_number": "string",
+    "title": "string",
+    "date": "YYYY-MM-DD",
+    "court": {
+        "name": "string",
+        "jurisdiction": "string",
+        "bench_type": "string"
+    },
+    "full_text": "string",
+    "metadata": {
+        "jurisdiction": "string",
+        "category": "string"
+    }
+}
+```
+
+#### Response
+
+```json
+{
+    "message": "Case created successfully",
+    "case_id": "string"
+}
+```
+
+### POST /api/v1/vector/search
+
+Search for similar cases using vector similarity.
+
+#### Request
+- Method: POST
+- Content-Type: application/json
+- Body:
+
+```json
+{
+    "query": "string",
+    "top_k": 10,
+    "search_type": "hybrid"
+}
+```
+
+Parameters:
+- query: The search query text
+- top_k: Number of results to return (default: 10)
+- search_type: Either "hybrid" (combines vector and text search) or "vector" (pure vector similarity search)
+
+#### Response
+
+```json
+[
+    {
+        "case_number": "string",
+        "title": "string",
+        "court": "string",
+        "text_chunk": "string",
+        "similarity": 0.95
+    }
+]
+``` 
